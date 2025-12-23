@@ -1,101 +1,89 @@
-📌 Airport Management System – Spring Boot
+# Airport Management System - Spring Boot
 
 A backend Airport Management System built using Spring Boot, Spring Data JPA, and PostgreSQL.
-This project provides REST APIs to manage Airlines, Flights, Bookings, and Seat Reservations with proper exception handling.
+This project manages Airlines, Flights, Seat Booking, and Passengers using RESTful APIs.
 
-🚀 Features
-✈️ Airline Management
+--------------------------------------------------
 
-➡️Create airline
+FEATURES
 
-➡️Get all airlines
+Airline Management
+- Create new airlines
+- Get all airlines
+- Get airline by ID
+- Delete airline
 
-➡️Get airline by ID
+Flight Management
+- Create flights under an airline
+- Get flights by airline
+- Get flight by ID
+- Automatically set available seats
 
-➡️Delete airline
+Seat Booking
+- Book seats for a flight
+- Prevent overbooking
+- Handle insufficient seats using custom exception
 
-🛫 Flight Management
+Booking Management
+- Create booking
+- Get booking by passenger name
+- Get booking by booking ID
 
-➡️Create flights under an airline
+Exception Handling
+- Global exception handling using ControllerAdvice
+- Custom exceptions for Airline, Flight, and Seat availability
 
-➡️Get all flights of an airline
+--------------------------------------------------
 
-➡️Get flight by ID
+PROJECT STRUCTURE
 
-➡️Search flight by flight number
+src/main/java/com/example/airport_management_system
+|-- controller
+|-- service
+|   |-- impl
+|-- repository
+|-- entity
+|-- dto
+|-- mapper
+|-- exception
+|-- AirportManagementSystemApplication.java
 
-🎟️ Booking & Seat Management
+--------------------------------------------------
 
-Book seats for a flight
+TECH STACK
 
-Prevent overbooking (InsufficientSeatsException)
+- Java 21
+- Spring Boot
+- Spring Data JPA
+- Hibernate
+- PostgreSQL
+- Maven
+- IntelliJ IDEA
+- Postman
 
-Get bookings by passenger name
+--------------------------------------------------
 
-Automatic seat availability update
+API ENDPOINTS
 
-⚠️ Exception Handling
+Airlines
+POST    /api/airlines
+GET     /api/airlines
+GET     /api/airlines/{id}
+DELETE  /api/airlines/{id}
 
-Custom exceptions (AirlineException, InsufficientSeatsException)
+Flights
+POST    /api/flights/{airlineId}/flights
+GET     /api/flights/{airlineId}/flights
+GET     /api/flights/{flightId}
 
-Global exception handling with meaningful error responses
+Bookings
+POST    /api/bookings
+GET     /api/bookings/{id}
+GET     /api/bookings/passenger/{name}
 
-🛠️ Tech Stack
+--------------------------------------------------
 
-➡️Java 21
-
-➡️Spring Boot 4
-
-➡️Spring Data JPA
-
-➡️Hibernate
-
-➡️PostgreSQL
-
-➡️Maven
-
-➡️Jackson (JSON)
-
-➡️Lombok
-
-Lombok
-
-📂 Project Structure
-
-airport-management-system
-│
-├── controller
-│   ├── AirlineController
-│   ├── FlightController
-│   └── BookingController
-│
-├── service
-│   ├── AirlineService
-│   ├── FlightService
-│   └── BookingService
-│
-├── service/impl
-│
-├── repository
-│
-├── entity
-│   ├── Airline
-│   ├── Flight
-│   └── Booking
-│
-├── dto
-│
-├── mapper
-│
-├── exception
-│
-└── AirportManagementSystemApplication
-
-🗄️ Database Configuration
-
-PostgreSQL is used as the database.
-
-application.properties
+DATABASE CONFIGURATION
 
 spring.datasource.url=jdbc:postgresql://localhost:5432/airport_management
 spring.datasource.username=postgres
@@ -103,52 +91,22 @@ spring.datasource.password=your_password
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 
-🔗 API Endpoints
-Airline APIs
-Method	Endpoint	Description
-POST	/api/airlines	Create airline
-GET	/api/airlines	Get all airlines
-GET	/api/airlines/{id}	Get airline by ID
-DELETE	/api/airlines/{id}	Delete airline
-Flight APIs
-Method	Endpoint	Description
-POST	/api/flights/{airlineId}/flights	Create flight
-GET	/api/flights/{airlineId}/flights	Get flights by airline
-GET	/api/flights/{flightId}	Get flight by ID
-Booking APIs
-Method	Endpoint	Description
-POST	/api/bookings	Book seats
-GET	/api/bookings/passenger/{name}	Get bookings by passenger
+--------------------------------------------------
 
-▶️ How to Run
-1. Clone the repository
-   git clone https://github.com/UtkarshPardhi/airport-management-system-SpringBoot-.git
-2. Open in IntelliJ IDEA
-3. Configure PostgreSQL database
-4. Run:
-   mvn spring-boot:run
-5. Server starts at:
-   http://localhost:8080
+HOW TO RUN
 
-📌 Future Enhancements
+git clone https://github.com/UtkarshPardhi/airport-management-system-SpringBoot-.git
+cd airport-management-system
+mvn spring-boot:run
 
-➡️Authentication & Authorization (JWT)
+Application runs on:
+http://localhost:8080
 
-➡️Swagger / OpenAPI documentation
+--------------------------------------------------
 
-➡️Pagination & sorting
+AUTHOR
 
-➡️Seat class (Economy, Business)
-
-➡️Payment integration
-
-👨‍💻 Author
 Utkarsh Pardhi
-Java | Spring Boot | Backend Development
-
-⭐ If you like this project
-
-Give it a ⭐ on GitHub — it motivates a lot 😄
-
+Java Backend Developer
+GitHub: https://github.com/UtkarshPardhi
